@@ -1,11 +1,12 @@
+
 import React from 'react';
 
-const Login = () => {
+const AuthProvider = () => {
     return (
         <div>
-            <h4>this is login</h4>
+            
         </div>
     );
 };
 
-export default Login;
+export default AuthProvider;
