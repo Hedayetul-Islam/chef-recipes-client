@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 
 const Home = () => {
+    const [chefs, setChefs] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/data')
+            .then(res => res.json())
+            .then(data => setChefs(data))
+    }, [])
+
     return (
         <div>
             <div className=' grid grid-cols-2 mt-10 gap-8 items-center'>
@@ -11,6 +20,31 @@ const Home = () => {
                 <div>
                     <img className=' p-6' src="https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 </div>
+            </div>
+            <div className=' grid grid-cols-3 mt-6 ml-24'>
+                {
+                    chefs.map(chef => <div
+                        key={chef.id}
+                    >
+                        <div>
+                            <div className="card w-96 bg-base-100 shadow-xl mt-4">
+                                <figure className="px-10 pt-10">
+                                    <img src={chef.chefPicture} alt="Shoes" className="rounded-xl" />
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">{chef.chefName}</h2>
+                                    <p>Years of experience: {chef.yearsExperience}</p>
+                                    <p>Numbers of recipes: {chef.numRecipes}</p>
+                                    <p>Likes: {chef.likes}</p>
+                                    <div className="card-actions">
+                                        <button className="btn btn-primary">View Recipes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>)
+                }
             </div>
         </div>
     );
