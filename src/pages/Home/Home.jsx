@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -37,7 +38,7 @@ const Home = () => {
                                     <p>Numbers of recipes: {chef.numRecipes}</p>
                                     <p>Likes: {chef.likes}</p>
                                     <div className="card-actions">
-                                        <button className="btn btn-primary">View Recipes</button>
+                                        <Link to="/recipes"><button className="btn btn-primary">View Recipes</button></Link>
                                     </div>
                                 </div>
                             </div>
