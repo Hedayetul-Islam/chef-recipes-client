@@ -12,6 +12,7 @@ We can use React props, short for properties, to send data from one component to
 
 Since JavaScript doesn’t have a built-in type checking solution, many developers use extensions like TypeScript and Flow. However, React has an internal mechanism for props validation called PropTypes.</p>
 <h3>3. Tell us the difference between nodejs and express js.</h3>
+<p>NodeJS is an event-driven, non-blocking I/O model using JavaScript as its main language. It helps to build scalable network applications. Express is a minimal and flexible Node. js web application framework that provides a robust set of features for web and mobile applications.</p>
         </div>
     );
 };
