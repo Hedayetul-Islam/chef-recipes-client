@@ -47,6 +47,39 @@ const Home = () => {
                     </div>)
                 }
             </div>
+            <div className=' text-center mt-12 bg-red-300'>
+                <h1 className=' font-bold text-6xl text-blue-500 pt-4'>About Ourself</h1>
+                <p className=' p-10'>A chef is a professional cook who specializes in preparing and creating dishes in a variety of styles and cuisines. Their expertise extends beyond simply cooking food, as they also have knowledge of food science, nutrition, and flavor profiles. Chefs are responsible for developing menus, selecting ingredients, managing a kitchen team, and ensuring that the food is prepared to the highest standards. Food is an essential part of human life and culture, and chefs play an important role in shaping culinary traditions and creating memorable dining experiences. The art of cooking is a constantly evolving field, with chefs always experimenting and innovating to create new and exciting dishes.</p>
+            </div>
+            <div className=' mt-12 mb-6'>
+                <h1 className=' font-bold text-center text-6xl text-yellow-400'>Our Best Chef</h1>
+                <div className=' grid grid-cols-3'>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Chef John Smith</h2>
+                    </div>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://images.pexels.com/photos/4253703/pexels-photo-4253703.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Chef Maria Rodriguez</h2>
+                    </div>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src="https://images.pexels.com/photos/4252150/pexels-photo-4252150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">Chef Maria</h2>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
     );
 };
