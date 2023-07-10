@@ -22,13 +22,13 @@ const Home = () => {
                     <img className=' p-6' src="https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
                 </div>
             </div>
-            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6 ml-24'>
+            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 p-10'>
                 {
                     chefs.map(chef => <div
                         key={chef.id}
                     >
                         <div>
-                            <div className="card w-96 bg-base-100 shadow-xl mt-4">
+                            <div className="card w-full bg-base-100 shadow-xl mt-4">
                                 <figure className="px-10 pt-10">
                                     <img src={chef.chefPicture} alt="Shoes" className="rounded-xl" />
                                 </figure>
@@ -53,8 +53,8 @@ const Home = () => {
             </div>
             <div className=' mt-12 mb-6'>
                 <h1 className=' font-bold text-center text-6xl text-yellow-400'>Our Best Chef</h1>
-                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-10'>
+                <div className="card w-full bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src="https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" className="rounded-xl" />
                     </figure>
@@ -62,7 +62,7 @@ const Home = () => {
                         <h2 className="card-title">Chef John Smith</h2>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-full bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src="https://images.pexels.com/photos/4253703/pexels-photo-4253703.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" className="rounded-xl" />
                     </figure>
@@ -70,7 +70,7 @@ const Home = () => {
                         <h2 className="card-title">Chef Maria Rodriguez</h2>
                     </div>
                 </div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-full bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img src="https://images.pexels.com/photos/4252150/pexels-photo-4252150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Shoes" className="rounded-xl" />
                     </figure>
