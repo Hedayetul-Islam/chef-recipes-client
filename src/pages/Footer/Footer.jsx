@@ -8,7 +8,7 @@ const Footer = () => {
     <p className="font-bold">
       Best Chef Healthy Food <br/>Providing reliable food since 1992
     </p> 
-    <p>Copyright © 2023 - All right reserved</p>
+    <p>Copyright © 2023 - All right reserved, Best Chef Healthy Food</p>
   </div> 
   <div>
     <div className="grid grid-flow-col gap-4">

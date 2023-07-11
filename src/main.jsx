@@ -14,6 +14,7 @@ import ChefRecipes from './pages/chefRecipes/chefRecipes.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import Register from './pages/Register/Register.jsx';
 import ErrorPage from './pages/ErrorPage/ErroePage.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,8 +40,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes/:id",
-        element: <ChefRecipes></ChefRecipes>,
-        loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.id}`)
+        element: <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/recipes/${params.id}`)
 
       }
     ]
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <AuthProvider><RouterProvider router={router} /></AuthProvider>
+    <AuthProvider>
+      <div className='max-w-screen-xl mx-auto'>
+        <RouterProvider router={router} />
+      </div>
+    </AuthProvider>
   </React.StrictMode>,
 )

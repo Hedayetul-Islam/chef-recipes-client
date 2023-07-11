@@ -1,9 +1,15 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 const Login = () => {
+    const [user, setUser] = useState()
     const {signIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
         event.preventDefault();
@@ -15,12 +21,28 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser)
+            setUser(loggedUser);
+            navigate(from, { replace: true })
         })
         .catch(error => {
             console.log(error)
         })
 
+    }
+
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleLogin = () =>{
+            signInWithPopup(auth, provider)
+            .then(result => {
+                const googleUser = result.user;
+                setUser(googleUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     return (
@@ -51,6 +73,9 @@ const Login = () => {
                         </div>
                     </form>
                 </div>
+                <Link>
+                <button onClick={handleGoogleLogin} className='btn btn-secondary'>Google Login</button>
+                </Link>
             </div>
         </div>
     );
