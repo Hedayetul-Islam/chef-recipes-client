@@ -13,8 +13,8 @@ import Login from './pages/Login/Login.jsx';
 import ChefRecipes from './pages/chefRecipes/chefRecipes.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import Register from './pages/Register/Register.jsx';
-import ErrorPage from './pages/ErrorPage/ErroePage.jsx';
 import PrivateRoute from './routes/PrivateRoute.jsx';
+import ErrorPage from './pages/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/recipes/:id",
         element: <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/recipes/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment10-server-gamma.vercel.app/recipes/${params.id}`)
 
       }
     ]
