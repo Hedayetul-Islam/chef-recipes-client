@@ -65,7 +65,7 @@ const Login = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             <label className="label text-cyan-500">
-                                <a href="#" className="label-text-alt link link-hover"><Link to="/register">Don't have an Account?</Link></a>
+                               <Link to="/register">Don't have an Account?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">

@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-    const {createUser, updateUserProfile} = useContext(AuthContext);
-    const [user, setUser] = useState('')
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [user, setUser] = useState('');
+    const [error, setError] = useState('');
 
     const handleRegister = event => {
         event.preventDefault();
@@ -14,21 +15,28 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photo, email, password)
+        console.log(name, photo, email, password);
+
+        if (password.length < 6) {
+            setError('Please add at least 6 characters in your password')
+            return;
+        }
         createUser(email, password)
-        .then(result => {
-            const createdUser = result.user;
-            setUser(createdUser)
-            
-        })
-        .catch(error => {
-            console.log(error);
-        })
-        updateUserProfile(name, photo)
-        .then()
-        .catch(error => {
-            console.log(error);
-        })
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+                setError('');
+                updateUserProfile(name, photo)
+                    .then()
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+            .catch(error => {
+                console.error(error.message);
+                setError(error.message);
+            })
+
     }
 
     return (
@@ -63,12 +71,13 @@ const Register = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             <label className="label text-cyan-500">
-                                <a href="#" className="label-text-alt link link-hover"><Link to="/login">Already have an Account?</Link></a>
+                                <Link to="/login">Already have an Account?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register Now</button>
                         </div>
+                        <p className='text-red-500'>{error}</p>
                     </form>
                 </div>
             </div>
